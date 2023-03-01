@@ -1,0 +1,75 @@
+{% extends 'partials/base.html' %}
+{% block title %}
+    <title>product page</title>
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% include 'partials/topnav.html' %}
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-4">
+            {% for msg in messages %}
+            {% if msg %}
+                <div class="alert alert-{{msg.tags}}">
+                {{msg}}
+                </div>
+            {% endif %}
+            {% endfor %}
+            <div class="border bg-white p-3">
+                <h4>Add Products</h4>
+                <hr>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <!-- <div class="form-group">
+                        <label for="name"><h6>Name</h6></label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="quant"><h6>Quantity</h6></label>
+                        <input type="number" class="form-control" id="quant">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="ctg"><h6>Category</h6></label>
+                        <select id="ctg" class="form-control">
+                            <option selected>choose...</option>
+                            <option>food</option>
+                            <option>electronics</option>
+                        </select>
+                    </div> -->
+                    <br>
+                    <input type="submit" class="btn form-control btn-success btn-block" value="Add Product">
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table bg-light">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
+                        <th class="mx-3" scope="col">Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in items %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.category}}</td>
+                        <td>{{i.quantity}}</td>
+                        <th scope="row"><a class="btn btn-info" href="">edit</a>
+                            <a class="btn btn-danger" href="">delete</a></th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

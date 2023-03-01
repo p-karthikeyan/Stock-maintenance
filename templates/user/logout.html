@@ -1,0 +1,17 @@
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>Logout page</title>
+{% endblock %}
+{% block content %}
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger lead p-3">
+                <p>You are logged out successfully !!</p>
+            </div>
+            <a class="lead link-secondary mx-3" href="{% url 'login-page' %}">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

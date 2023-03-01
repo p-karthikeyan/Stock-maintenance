@@ -1,0 +1,49 @@
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="row p-3">
+        <div class="col-md-4">
+            <div class="card bg-white text-dark">
+                <div class="card-header">
+                    <h4>Make Request</h4>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                    <br>
+                    <input type="submit" class="btn btn-primary text-white form-control" value="Order">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card bg-white text-dark">
+                <div class="card-header">
+                    <h4>Make Request</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table bg-light">
+                        <thead class="bg-info text-white">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Order by</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in orders %}
+                            <tr>
+                                <td>{{i.product.name}}</td>
+                                <td>{{i.product.category}}</td>
+                                <td>{{i.order_quantity}}</td>
+                                <td>{{i.staff.username}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

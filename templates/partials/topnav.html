@@ -1,0 +1,52 @@
+<div class="container">
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card pb-5">
+            <div class="card-header bg-info text-white">
+              <h3>Informations</h3>
+            </div>
+            <div class="card-body bg-light text-center">
+              <marquee behavior="" direction="">
+                <h2 class="my-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium praesentium ea, unde r
+                epudiandae nam velit! Alias, dolores necessitatibus quidem cumque nesciun
+                t aliquam facilis rerum eaque corporis sit laboriosam, autem blanditiis!</h2></marquee>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header bg-info text-white">
+              <h3>Statistics</h3>
+            </div>
+            <div class="card-body text-center">
+              <div class="row my-2 mb-3">
+                <div class="col-md">
+                  <a href="{% url 'dash-staff' %}" class="text-decoration-none text-dark">
+                    <div class="card my-card shadow p-3">
+                      <h4>Staffs</h4>
+                      <h3>{{u_count}}</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md">
+                  <a href="{% url 'dash-product' %}" class="text-decoration-none text-dark">
+                    <div class="card my-card shadow p-3">
+                      <h4>Products</h4>
+                      <h3>{{p_count}}</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md">
+                  <a href="{% url 'dash-order' %}" class="text-decoration-none text-dark">
+                    <div class="card my-card shadow p-3">
+                      <h4>Orders</h4>
+                      <h3>{{o_count}}</h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+</div>

@@ -1,0 +1,35 @@
+<nav class="nav navbar navbar-expand-lg  bg-dark navbar-dark text-light">
+    <div class="container py-2">
+            <h1 class="navbar-brand">Stock Maintenance</h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'Home' %}" class="nav-link text-light">Dashboard</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto" >
+                <li class="nav-item">
+                    <a href="{% url 'profile-page' %}" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout-page' %}" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto" >
+                <li class="nav-item">
+                    <a href="{% url 'register-page' %}" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'login-page' %}" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</nav>
